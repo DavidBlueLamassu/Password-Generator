@@ -1,7 +1,7 @@
-// Four Character Arrays: Below are four character arrays each of which includes characters of a particular type stored as strings. 
+// Below are four character arrays each of which includes characters of a particular type stored as strings. 
 // Characters of each type may be included or rejected by the user to form his or her password. These character types include lists of
-// special characters, numeric characters, lower case characters and upper case characters. In the comments below they will be 
-// collectively referred to as the 'character arrays'.
+// special characters, numeric characters, lower-case characters and upper-case characters. In the comments below they will be 
+// referred to collectively as 'the character arrays'.
 
 // Array of special characters to be included in password
 var specialCharacters = [
@@ -96,10 +96,10 @@ var upperCasedCharacters = [
 //Variable to hold the user's desired password length
 var length;
 
-//Boolean variable to indicate whether the user wishes his or her password to contain lower case characters
+//Boolean variable to indicate whether the user wishes his or her password to contain lower-case characters
 var lowerCase;
 
-//Boolean variable to indicate whether the user wishes his or her password to contain upper case characters
+//Boolean variable to indicate whether the user wishes his or her password to contain upper-case characters
 var upperCase;
 
 //Boolean variable to indicate whether the user wishes his or her password to contain numeric characters
@@ -108,7 +108,8 @@ var numeric;
 //Boolean variable to indicate whether the user wishes his or her password to contain special characters
 var special;
 
-//An empty array to be built up using the push() method, once characters are randomly selected from the character arrays to form a password
+//An empty array to be built up using the push() method, once characters are randomly selected from the character arrays to form 
+//a password
 var password = [];
 
 //Variable to store the value of randomly selected characters which will be added to the password array using the push() method
@@ -117,16 +118,16 @@ var characterSelected;
 //The first of five variables to store a random value in the while loop which will build the password array; this variable stores 
 //a value between 0 and 3. Each number corresponds to one of the four character arrays from which characters will be selected to build
 //a random password. In order for a character to be selected from one of these arrays the while loop requires both that the user
-//wished to include the relevant character type (boolean value === true) and that the number corresponding to that character type 
-//matches the random value of r. This ensures not only that the character selected from one of the character arrays is chosen 
+//chose to include the relevant character type (boolean value === true) and that the number corresponding to that character type 
+//matches the random value of r. This ensures that not only the character selected from one of the character arrays is chosen 
 //randomly (see random variables below) but also that the arrays are selected randomly during each iteration of the while loop. 
-//This guarantees a fully random selection process and thereby enhances password security. (Further details of this process are 
+//This allows a more random selection process and thereby enhances password security. (Further details of this process are 
 //described in the comments for the relevant 'while' loop below.)
 var r;
 
-//Four random variables to hold a value corresponding to the length of the four character arrays. Each of these are used to hold 
-//a random value corresponding to one of the strings within each of these arrays. Once the string is selected using one of these 
-//random variables it is stored in the 'characterSelected' variable and added to the 'password' array user the push() method.
+//Four random variables to hold a value within the numerical range determined by the length of each of the four character arrays. 
+//Once generated, these values are used to select a string from one of the relevant arrays, which is then stored in the 
+//'characterSelected' variable and added to the 'password' array using the push() method.
 
 //Stores a random value corresponding to the 'lowerCasedCharacters' array.
 var s;
@@ -140,7 +141,7 @@ var v;
 // Function to prompt user for password options
 function getPasswordOptions() {
   
-  //Function prompting user to determine the desired password length, which must be between 10 and 64 characters inclusive the 
+  //Function prompting user to determine the desired password length, which must be between 10 and 64 characters inclusive. The 
   //parseInt () method is used to convert the value obtained through the prompt from a string to a number.
   function long() {length = parseInt(
     prompt("Please enter the number of characters you would like your password to contain. This must be a number between 10 and 64 inclusive")
@@ -151,9 +152,9 @@ function getPasswordOptions() {
   //The character length function is invoked.
   long();
 
-  //This while loop guarantees that the user provides correct information to the character length prompt. Firstly, user input must 
-  //be a number, secondly it must be a number greater than 10 and thirdly a number less than 65. The loop will continue to prompt
-  //the user for correct input until all three of these conditions are met. (This use of the Number.isNaN() method below is 
+  //This 'while' loop guarantees that the user provides correct information to the character length prompt. Firstly, user input must 
+  //be a number, secondly it must be a number greater than 10, and thirdly a number less than 65. The loop will continue to prompt
+  //the user for correct input until all three of these conditions are met. (This use of the Number.isNaN() method is 
   //derived from the examples on 'W3 Schools': 'JavaScript Number isNaN()' W3 Schools, last viewed 16 January 2023: 
   //https://www.w3schools.com/JSREF/jsref_isnan_number.asp)
   while (Number.isNaN(length) === true || length < 10 || length > 64) {
@@ -166,10 +167,11 @@ function getPasswordOptions() {
         }
   }
 
-  //This function requires the user to confirm whether he or she wishes the password to contain from each of the four relevant types
-  //and records his or her answers as booleans corresponding to each of these characters classes. (Use of the 'confirm' popup in 
-  //this function derives from examples on 'W3 Schools': 'JavaScript Popup Boxes' W3 Schools, last viewed 16 January 2023: 
-  //https://www.w3schools.com/js/js_popup.asp; see also the 'Try it Yourself>>' link for the 'windows.confirm() method'.)
+  //This function requires the user to confirm whether he or she wishes the password to contain characters from each of the 
+  //four relevant types and records his or her answers as booleans corresponding to each of these character classes. (Use of 
+  //the 'confirm' popup in this function derives from examples on 'W3 Schools': 'JavaScript Popup Boxes' W3 Schools, last viewed 
+  //16 January 2023: https://www.w3schools.com/js/js_popup.asp; see also the 'Try it Yourself>>' link for the 
+  //'windows.confirm() method'.)
   function characters() {
     lowerCase = confirm("Do you wish your password to contain lower case letters?");
     upperCase = confirm("Do you wish your password to contain upper case letters?");
@@ -192,8 +194,8 @@ function getPasswordOptions() {
 // Function for getting a random element from an array
 function getRandom() {
   
-  //A function to build up the password array once a character has been selected user the relevant 'while' loop below. After the
-  //push() has been invoked the value of the random variable 'r' is made to equal 10. This is done to prevent the 'while' 
+  //A function to build up the password array once a character has been selected using the relevant 'while' loop below. After the
+  //push() method has been invoked the value of the random variable 'r' is made equal to 10. This is done to prevent the 'while' loop
   //continuing to build up a password solely from the first character type the conditional statemetents allow it to run. 
   //None of the conditional statements will run when r = 10; accordingly, the while loop must run again assigning a new value for 
   //'r' between 0 and 3. This will allow all four character types to be selected during multiple iterations of the loop.
@@ -202,13 +204,13 @@ function getRandom() {
     return;
   }
 
-  //A while loop to generate a password from user specifications. The while will run until the length of the password array is 
-  //equal to the 'length' variable which holds the number of characters the user chose as the desired number for the password.
-  //Given that the password array contains no values when the 'while' loop first runs its initial value is 0. 
+  //A 'while' loop to generate a password from user specifications. The 'while' loop will run until the length of the password array is 
+  //equal to the 'length' variable (which holds the value for the number of characters the user chose for the password).
+  //Given that the 'password' array is empty when the 'while' loop first runs its initial value is 0. 
   while (password.length < length) {
     
-    //The value of 'r' is set to a number between 0 and 3. In order for any of the conditional statements to run 'r' must be set 
-    //the correct value and the user must have included the relevant character type to be included in the password (boolean value
+    //The value of 'r' is set to a number between 0 and 3. In order for any of the conditional statements to run 'r' must be set to
+    //the correct value and the user must have chosen the relevant character type to be included in the password (boolean value
     //=== true). If both values are met the conditional statement will run, selecting a random character from one of the four
     //corresponding character arrays. The passwordWriter() fuction will then be invoked adding a character to the 'password' array 
     //and re-setting the value of 'r' to 10. This change in the value will prevent the conditional statement from continuing 
@@ -228,13 +230,13 @@ function generatePassword() {
   getPasswordOptions();
   getRandom()
 
-  //Alerts the unser that the page must be refreshed first in order to generate a new password. (This use of the join() method 
-  //to remove commas when displaying the 'password' array was derived from the reply of James Allardice to a query on 'Stack 
-  //Overflow': Basim Sherif, 'Removing commas from javascript array', Stack Overflow (3 September 2018), last viewed 16 January 2023
-  //https://stackoverflow.com/questions/12835621/removing-commas-from-javascript-array)
+  //Alerts the user that the page must be refreshed in order to generate a new password. 
   alert("Please find your new password in the textbox. To generate another password please refresh the page and click the Generate Password button again.")
   
-  //Displays the password as a continuous value without commas.
+  //Displays the password as a continuous value without commas. (This use of the join() method to remove commas when displaying 
+  //the 'password' array was derived from the reply of James Allardice to a query on 'Stack Overflow': Basim Sherif, 'Removing 
+  //commas from javascript array', Stack Overflow (3 September 2018), last viewed 16 January 2023:
+  //https://stackoverflow.com/questions/12835621/removing-commas-from-javascript-array)
   return password.join("");
 }
 

@@ -119,7 +119,7 @@ var characterSelected;
 //a value between 0 and 3. Each number corresponds to one of the four character arrays from which characters will be selected to build
 //a random password. In order for a character to be selected from one of these arrays the while loop requires both that the user
 //chose to include the relevant character type (boolean value === true) and that the number corresponding to that character type 
-//matches the random value of r. This ensures that not only the character selected from one of the character arrays is chosen 
+//matches the random value of 'r'. This ensures that not only the character selected from one of the character arrays is chosen 
 //randomly (see random variables below) but also that the arrays are selected randomly during each iteration of the while loop. 
 //This allows a more random selection process and thereby enhances password security. (Further details of this process are 
 //described in the comments for the relevant 'while' loop below.)
@@ -141,10 +141,10 @@ var v;
 // Function to prompt user for password options
 function getPasswordOptions() {
   
-  //Function prompting user to determine the desired password length, which must be between 10 and 64 characters inclusive. The 
+  //Function prompting the user to determine the desired password length, which must be between 10 and 64 characters inclusive. The 
   //parseInt () method is used to convert the value obtained through the prompt from a string to a number.
   function long() {length = parseInt(
-    prompt("Please enter the number of characters you would like your password to contain. This must be a number between 10 and 64 inclusive")
+    prompt("Please enter the number of characters you would like your password to contain. This must be a number between 10 and 64 inclusive.")
     );
     return;
   }
@@ -154,7 +154,7 @@ function getPasswordOptions() {
 
   //This 'while' loop guarantees that the user provides correct information to the character length prompt. Firstly, user input must 
   //be a number, secondly it must be a number greater than 10, and thirdly a number less than 65. The loop will continue to prompt
-  //the user for correct input until all three of these conditions are met. (This use of the Number.isNaN() method is 
+  //the user for correct input until all three of these conditions are met. (Use of the Number.isNaN() method is 
   //derived from the examples on 'W3 Schools': 'JavaScript Number isNaN()' W3 Schools, last viewed 16 January 2023: 
   //https://www.w3schools.com/JSREF/jsref_isnan_number.asp)
   while (Number.isNaN(length) === true || length < 10 || length > 64) {
@@ -194,9 +194,9 @@ function getPasswordOptions() {
 // Function for getting a random element from an array
 function getRandom() {
   
-  //A function to build up the password array once a character has been selected using the relevant 'while' loop below. After the
+  //A function to build up the 'password' array once a character has been selected using the relevant 'while' loop below. After the
   //push() method has been invoked the value of the random variable 'r' is made equal to 10. This is done to prevent the 'while' loop
-  //continuing to build up a password solely from the first character type the conditional statemetents allow it to run. 
+  //continuing to build up a password solely from the first character type the conditional statements allow it to run. 
   //None of the conditional statements will run when r = 10; accordingly, the while loop must run again assigning a new value for 
   //'r' between 0 and 3. This will allow all four character types to be selected during multiple iterations of the loop.
   function passwordWriter() {
@@ -206,14 +206,14 @@ function getRandom() {
 
   //A 'while' loop to generate a password from user specifications. The 'while' loop will run until the length of the password array is 
   //equal to the 'length' variable (which holds the value for the number of characters the user chose for the password).
-  //Given that the 'password' array is empty when the 'while' loop first runs its initial value is 0. 
+  //Given that the 'password' array is empty when the 'while' loop first runs its initial length is 0. 
   while (password.length < length) {
     
-    //The value of 'r' is set to a number between 0 and 3. In order for any of the conditional statements to run 'r' must be set to
-    //the correct value and the user must have chosen the relevant character type to be included in the password (boolean value
-    //=== true). If both values are met the conditional statement will run, selecting a random character from one of the four
-    //corresponding character arrays. The passwordWriter() fuction will then be invoked adding a character to the 'password' array 
-    //and re-setting the value of 'r' to 10. This change in the value will prevent the conditional statement from continuing 
+    //The value of 'r' is set to a random number between 0 and 3. In order for any of the conditional statements to run 'r' must 
+    //be set to the correct value and the user must have chosen the relevant character type to be included in the password (boolean 
+    //value === true). If both values are met the conditional statement will run, selecting a random character from one of the four
+    //corresponding character arrays. The passwordWriter() function will then be invoked adding a character to the 'password' array 
+    //and setting the value of 'r' to 10. This change in value will prevent the conditional statement from continuing 
     //to run and require another iteration of the loop to assign a new random value to 'r' within the valid range of the 
     //conditional statements. At most, one character may be added to the 'password' array per iteration. This ensures not only 
     //that characters are selected randomly from each character array but also that the arrays themselves are randomly selected.  
